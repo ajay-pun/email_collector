@@ -5,6 +5,7 @@ from random import randint
 
 
 def run(playwright):
+    email="helloworld"
     browser =playwright.chromium.launch(headless=True)
     page = browser.new_page()
     page.goto("https://accounts.google.com/signup/v2/webcreateaccount?biz=false&cc=IN&continue=https%3A%2F%2Fwww.google.com%2F&dsh=S1627445831%3A1674586118124237&flowEntry=SignUp&flowName=GlifWebSignIn&hl=en&ifkv=AWnogHeE6ezYEQseKsIsnL3Sij1w6QHgKm2F4llvOGbAMoPrX87M5Q8JfuyAdUGothHy14tW9ijl")
@@ -22,9 +23,9 @@ def run(playwright):
         sleep(3)
         pagetxt=str(page.content())
         if 'That username is taken.' in pagetxt:
-            print(email," is taken")
+            print(email+"@gmail.com is taken")
         else:
-            print(email," is not taken")
+            print(email+"@gmail.com is not taken")
             
         page.keyboard.press("Tab")
         page.keyboard.press("Control+A")
